@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h2> <%= title %> </h2>
+
+    <p> تایم های خالی و اسمتونُ وارد کنین </p>
+    <p> و میتونین لینکُ به بقیه کسایی که قراره باشن هم بدین </p>
+    <br />
+    <p> میتونید از لینک زیر برای هر کاری یک رای گیری دیگه برای تایم درست کنین و لینکشُ بدین به همه </p>
+    <a href="/">لینک</a>
+    <p>#wecan</p>
+    <form method="post">
+
+
+        <table border='1' style="width:100%">
+            <tr>
+                <% for(var i = 22 ; i >= 6 ; i--) {%>
+                    <th>
+                        <%= i %>
+                    </th>
+                    <% } %>
+                        <td>روز هفته/ساعت</td>
+            </tr>
+
+            <%
+            var week_days = ['شنبه','یکشنبه','دوشنبه','سه شنبه','چهار شنبه','پنج شنبه','جمعه'];
+            var cntr = 0 ;
+            %>
+
+
+                <% for(var i = 0 ; i < 7 ; i++) {%>
+                    <tr>
+                        <% for(var j = 0 ; j < 17 ; j++) {%>
+                            <td>
+                                <input name='<%= ++cntr %>' type='checkbox'>
+                                </input>
+                                <br />
+                                <% if(names && names[cntr]){ %>
+                                    <% names[cntr].forEach(function(ss){%>
+                                        <%= ss%>
+                                            <br />
+                                            <%}) %>
+                                                <% } %>
+                            </td>
+                            <% } %>
+                                <td>
+                                    <%= week_days[i] %>
+                                </td>
+                    </tr>
+                    <%}%>
+        </table>
+
+        <br />
+        <input type="text" name="name"> : نام شما </input>
+        <br />
+        <button type="submit">ثبت</button>
+    </form>
+</body>
+
+</html>
