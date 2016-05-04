@@ -1,0 +1,9 @@
+{
+   "apps": [{
+      "name": "time_v0.0.0",
+      "script": "./bin/www",
+      "err_file": "time_err.log",
+      "out_file": "time_out.log",
+      "args": "['-x']"
+   }]
+}
