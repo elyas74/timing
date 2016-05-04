@@ -12,10 +12,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
 
-    var title = req.body.title || "";
-
     new db.time({
-        title: title
+        title: req.body.title
     }).save(function(err, data) {
         if (err) {
             console.log(err);
@@ -30,7 +28,7 @@ router.post('/', function(req, res, next) {
 router.get('/timing/:_id', function(req, res, next) {
 
     var _id = req.params._id;
-    console.log("someone watching -> /timing/" + _id);
+    console.log("someone watching /timing/" + _id);
 
     db.time.findOne({
         _id: _id
@@ -65,7 +63,7 @@ router.post('/timing/:_id', function(req, res, next) {
 
     var _id = req.params._id;
 
-    console.log("someone post time to -> /timing/" + _id);
+    console.log("someone post /timing/" + _id);
 
     var d = req.body;
 

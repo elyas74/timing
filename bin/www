@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var app = require('../app');
 var debug = require('debug')('time:server');
 var http = require('http');
+require('../server/node_modules/loggers');
 
 connect_mongo();
 

@@ -42,7 +42,6 @@
                         <% for(var j = 0 ; j < 17 ; j++) {%>
                             <td>
                                 <input name='<%= ++cntr %>' type='checkbox'>
-                                </input>
                                 <br />
                                 <% if(names && names[cntr]){ %>
                                     <% names[cntr].forEach(function(ss){%>
@@ -61,10 +60,10 @@
 
         <br />
         <div>
-          <input type="text" name="name"> : نام شما </input>
+            <input type="text" name="name"> : نام شما
         </div>
         <div>
-          <button type="submit" class="btn btn-primary">ثبت</button>
+            <button type="submit" class="btn btn-primary">ثبت</button>
         </div>
     </form>
 </body>
