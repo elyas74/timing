@@ -5,17 +5,22 @@
     font-weight: normal;
     font-style: normal;
 }
-body {
+
+/*body {
     padding: 50px;
     font-family: BYekan;
     text-align: right;
-}
-p, td, a {
+}*/
+
+p, a, h2 {
     font-family: BYekan, Times, serif;
+    text-align: right;
 }
-p, a {
+
+/*p, a {
     font-size: 20px;
-}
+}*/
+
 table, tr, td, th {
     text-align: center;
 }

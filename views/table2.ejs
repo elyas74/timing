@@ -18,7 +18,7 @@
 
     <!-- Custom CSS -->
     <link href="/aaa/css/heroic-features.css" rel="stylesheet">
-
+    <link href='/stylesheets/style.css' rel='stylesheet'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -64,15 +64,22 @@
 
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
-            <h2>Welcome!</h2>
-            <p> - You can vote for your invited meeting to set time of meeting.</p>
-            <p> - Or create your own timing...</p>
+            <h2 style="text-align: right;">شما برای هماهنگ کردن تایم جلسه
+ <b>"<%=title%>"</b>
+ اینجایید</h2>
+            <p>از جدول زیر میتونید تایم های خالی خودتونُ وارد کنین و بعد از وارد کردن اسمتون ثبت کنین.</p>
+            <p>بقیه هم تایم های خالیشونُ وارد میکنن و تایم جلسه مشخص میشه</p>
+            <p>اگه کسی رو میشناسی که اونم باید توی جلسه باشه میتونی لینکُ به اون هم بدی</p>
+            <p>راستی با کلیک روی اعداد میشه دید که چه کسایی اون موقع وقت دارن</p>
+            <p>و نهایتا اگه برای جلسه دیگه ای نیاز به هماهنگی هست، میتونی خودت یک نظرسنجی دیگه درست کنی!</p>
+            <!-- <p> - You can vote for your invited meeting to set time of meeting.</p> -->
+            <!-- <p> - Or create your own timing...</p> -->
             <p>
-                <a class="btn btn-primary btn-large" href="/">CREATE NEW</a>
+                <a class="btn btn-primary btn-large" href="/">ساختن یک نظرسنجی جدید</a>
             </p>
-            <p><b>title of this timing :</b>
+            <!-- <p><b>title of this timing :</b>
                 <%= title %>
-            </p>
+            </p> -->
         </header>
 
         <hr>
