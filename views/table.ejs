@@ -41,15 +41,31 @@
                     <tr>
                         <% for(var j = 0 ; j < 17 ; j++) {%>
                             <td>
-                                <input name='<%= ++cntr %>' type='checkbox'>
-                                <br />
-                                <% if(names && names[cntr]){ %>
-                                    <% names[cntr].forEach(function(ss){%>
-                                        <%= ss%>
-                                            <br />
-                                            <%}) %>
-                                                <% } %>
+                                <input class="checkbox" name='<%= ++cntr %>' type='checkbox'>
+                                <%
+                                var people_n = 0 ;
+                                if(names[cntr]){
+                                  people_n = names[cntr].length;
+                                }
+
+                                var color = 'default';
+
+                                if( people_n == max_people ){
+                                  color = 'success';
+                                }
+
+                                else if(people_n > 0 ){
+                                  color = 'info';
+                                }
+
+                                %>
+                                    <br />
+                                    <button type="button" id="<%= cntr %>" class="btn btn-<%=color%>" data-container="body" data-toggle="popover" data-placement="right" data-content="<%=names[cntr]%>">
+
+                                        <%=people_n%>
+                                    </button>
                             </td>
+
                             <% } %>
                                 <td>
                                     <%= week_days[i] %>
@@ -69,5 +85,11 @@
 </body>
 <script src="/plugins/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <script src="/plugins/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function() {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
 
 </html>

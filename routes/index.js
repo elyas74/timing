@@ -51,9 +51,18 @@ router.get('/timing/:_id', function(req, res, next) {
                 });
             };
 
+            var max_people = 0;
+
+            for (key in names) {
+                if (names[key].length > max_people)
+                    max_people = names[key].length;
+            }
+
+
             res.render('table', {
                 names: names,
-                title: data.title
+                title: data.title,
+                max_people: max_people
             });
         }
     });

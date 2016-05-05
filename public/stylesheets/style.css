@@ -1,8 +1,13 @@
 body {
     padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: sans-serif;
     text-align: right;
 }
+
+p {
+    /*font-family: "Times New Roman", Times, serif;*/
+}
+
 a {
     color: #00B7FF;
 }
