@@ -1,6 +1,6 @@
 {
-  "name": "time",
-  "version": "0.0.0",
+  "name": "timing",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"

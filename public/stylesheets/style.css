@@ -1,13 +1,24 @@
+@font-face {
+    font-family: BYekan;
+    src: url('/fonts/wYekan.eot?-5bd4u4');
+    src: url("/fonts/wYekan.eot?#iefix-5bd4u4") format('embedded-opentype'), url("/fonts/wYekan.woff?-5bd4u4") format('woff'), url("/fonts/wYekan.ttf?-5bd4u4") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
     padding: 50px;
-    font-family: sans-serif;
+    font-family: BYekan;
     text-align: right;
 }
-
-p {
-    /*font-family: "Times New Roman", Times, serif;*/
+p, td, a {
+    font-family: BYekan, Times, serif;
 }
-
+p, a {
+    font-size: 20px;
+}
+table, tr, td, th {
+    text-align: center;
+}
 a {
     color: #00B7FF;
 }

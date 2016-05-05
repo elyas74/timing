@@ -5,8 +5,9 @@ var db = require('../db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', {
-        title: 'timing'
+    res.render('index2', {
+        title: 'timing',
+        version: global.init.version
     });
 });
 
@@ -51,7 +52,7 @@ router.get('/timing/:_id', function(req, res, next) {
                 });
             };
 
-            var max_people = 0;
+            var max_people = -1;
 
             for (key in names) {
                 if (names[key].length > max_people)
@@ -59,10 +60,11 @@ router.get('/timing/:_id', function(req, res, next) {
             }
 
 
-            res.render('table', {
+            res.render('table2', {
                 names: names,
                 title: data.title,
-                max_people: max_people
+                max_people: max_people,
+                version: global.init.version
             });
         }
     });

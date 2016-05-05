@@ -7,42 +7,63 @@
     </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/plugins/bootstrap/dist/css/bootstrap.min.css' />
+    <!-- <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css"> -->
 </head>
 
 <body>
-    <h2> <%= title %> </h2>
 
-    <p> تایم های خالی و اسمتونُ وارد کنین </p>
-    <p> و میتونین لینکُ به بقیه کسایی که قراره باشن هم بدین </p>
-    <br />
-    <p> میتونید از لینک زیر برای هر کاری یک رای گیری دیگه برای تایم درست کنین و لینکشُ بدین به همه </p>
-    <a href="/">لینک</a>
-    <p>#wecan</p>
-    <form method="post">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <p class="panel-title" align='center'>
+                <%= title %>
+            </p>
+        </div>
+        <div class="panel-body">
+            <p> تایم های خالی و اسمتونُ وارد کنین </p>
+            <p> و میتونین لینکُ به بقیه کسایی که قراره باشن هم بدین </p>
+            <br />
+            <p>میتونید از لینک زیر یک رای گیری جدید شروع کنین و ازش استفاده کنین</p>
+
+            <a href="/">لینک</a>
+            <p>#wecan</p>
+        </div>
+
+        <div>
+            <form method="post">
 
 
-        <table border='1' style="width:100%" class="table">
-            <tr>
-                <% for(var i = 22 ; i >= 6 ; i--) {%>
-                    <th>
-                        <%= i %>
-                    </th>
-                    <% } %>
-                        <td>روز هفته/ساعت</td>
-            </tr>
+                <p>
+                  <input type="text" name="name"> : نام شما
+                  <br />
+                  <button type="submit" class="btn btn-primary">ثبت</button>
+                </p>
 
-            <%
+                <table border='1' style="width:100%" class="table col-ms-12">
+                    <tr>
+                        <% for(var i = 22 ; i >= 8 ; i--) {%>
+                            <th align='center'>
+                                <%= i %>
+                            </th>
+                            <% } %>
+                                <td>
+                                    <h4>
+                            روز هفته/ساعت
+                          </h4>
+                                </td>
+                    </tr>
+
+                    <%
             var week_days = ['شنبه','یکشنبه','دوشنبه','سه شنبه','چهار شنبه','پنج شنبه','جمعه'];
             var cntr = 0 ;
             %>
 
 
-                <% for(var i = 0 ; i < 7 ; i++) {%>
-                    <tr>
-                        <% for(var j = 0 ; j < 17 ; j++) {%>
-                            <td>
-                                <input class="checkbox" name='<%= ++cntr %>' type='checkbox'>
-                                <%
+                        <% for(var i = 0 ; i < 7 ; i++) {%>
+                            <tr>
+                                <% for(var j = 0 ; j < 15 ; j++) {%>
+                                    <td>
+                                        <input class="checkbox" name='<%= ++cntr %>' type='checkbox'>
+                                        <%
                                 var people_n = 0 ;
                                 if(names[cntr]){
                                   people_n = names[cntr].length;
@@ -59,29 +80,26 @@
                                 }
 
                                 %>
-                                    <br />
-                                    <button type="button" id="<%= cntr %>" class="btn btn-<%=color%>" data-container="body" data-toggle="popover" data-placement="right" data-content="<%=names[cntr]%>">
+                                            <br />
+                                            <button type="button" id="<%= cntr %>" class="btn btn-<%=color%>" data-container="body" data-toggle="popover" data-placement="right" data-content="<%=names[cntr]%>">
 
-                                        <%=people_n%>
-                                    </button>
-                            </td>
+                                                <%=people_n%>
+                                            </button>
+                                    </td>
 
-                            <% } %>
-                                <td>
+                                    <% } %>
+                                        <td>
+                                            <h3>
                                     <%= week_days[i] %>
-                                </td>
-                    </tr>
-                    <%}%>
-        </table>
+                                  </h3>
+                                        </td>
+                            </tr>
+                            <%}%>
+                </table>
 
-        <br />
-        <div>
-            <input type="text" name="name"> : نام شما
+            </form>
         </div>
-        <div>
-            <button type="submit" class="btn btn-primary">ثبت</button>
-        </div>
-    </form>
+    </div>
 </body>
 <script src="/plugins/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <script src="/plugins/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>

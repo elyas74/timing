@@ -1,10 +1,7 @@
-global.init = {
-
-};
-
 //
 //
-//
+global.init = {};
+global.init.version = require('./package.json').version;
 
 
 var express = require('express');
