@@ -1,26 +1,36 @@
 var express = require('express');
 var router = express.Router();
 
-var db = require('../db');
+var db = require('db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', {
-        title: 'timing'
+
+    res.render('index2', {
+        title: 'timing',
+        version: global.init.version
     });
+
+    console.log("get /");
 });
 
 router.post('/', function(req, res, next) {
 
-    new db.time({
-        title: req.body.title
-    }).save(function(err, data) {
+    var timing = {};
+    if (req.body.title) {
+        timing.title = req.body.title;
+    }
+
+    new db.time(timing).save(function(err, data) {
         if (err) {
             console.log(err);
             res.send(err);
         } else {
-            console.log("someone make a new route -> " + data._id);
             res.redirect('/timing/' + data._id);
+            console.log(" * someone make a new route -> " + data._id);
+            if (data.title) {
+                console.log(" title -> " + data.title);
+            }
         }
     });
 });
@@ -28,7 +38,7 @@ router.post('/', function(req, res, next) {
 router.get('/timing/:_id', function(req, res, next) {
 
     var _id = req.params._id;
-    console.log("someone watching /timing/" + _id);
+    console.log("someone watching -> /timing/" + _id);
 
     db.time.findOne({
         _id: _id
@@ -39,9 +49,14 @@ router.get('/timing/:_id', function(req, res, next) {
         } else if (data) {
 
             var names = {};
+            var members = [];
 
             if (data && data.members) {
                 data.members.forEach(function(member) {
+
+                    if (member.name && member.name != '') {
+                        members.push(member.name);
+                    }
                     member.times.forEach(function(time) {
                         names[time] = names[time] || [];
                         names[time].push(member.name);
@@ -49,9 +64,20 @@ router.get('/timing/:_id', function(req, res, next) {
                 });
             };
 
-            res.render('table', {
+            var max_people = -1;
+
+            for (key in names) {
+                if (names[key].length > max_people)
+                    max_people = names[key].length;
+            }
+
+
+            res.render('table2', {
                 names: names,
-                title: data.title
+                title: data.title,
+                max_people: max_people,
+                members: members,
+                version: global.init.version
             });
         }
     });
@@ -63,13 +89,13 @@ router.post('/timing/:_id', function(req, res, next) {
 
     var _id = req.params._id;
 
-    console.log("someone post /timing/" + _id);
+    console.log("someone post time to -> /timing/" + _id);
 
     var d = req.body;
 
     var user = {};
 
-    user.name = d.name || 'نا شناس';
+    user.name = d.name || 'ناشناس';
     user.times = [];
 
 

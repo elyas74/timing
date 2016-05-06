@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -12,13 +12,10 @@
     <meta content="elyas ghasemi" name="author">
     <meta content="هماهنگی آسان تایم جلسات جمعی" name="description">
 
-    <meta property="og:locale" content="fa_IR" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="هماهنگی آسان تایم جلسات جمعی" />
+    <meta property="og:title" content="زمانبدی جلسات" />
     <meta property="og:description" content="هماهنگی آسان تایم جلسات جمعی" />
     <meta property="og:url" content="http://timing.kiaan.org/" />
     <meta property="og:site_name" content="timing" />
-
     <title>
         <%= title %>
     </title>
@@ -55,14 +52,14 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <!-- <ul class="nav navbar-nav">
                     <li>
                         <a href="/">new</a>
                     </li>
                     <li>
                         <a href="#">About</a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -77,11 +74,11 @@
             <h2 style="text-align: right;">شما برای هماهنگ کردن تایم جلسه
  <b>"<%=title%>"</b>
  اینجایید</h2>
-            <p>از جدول زیر میتونید تایم های خالی خودتونُ وارد کنین و بعد از وارد کردن اسمتون ثبت کنین.</p>
-            <p>بقیه هم تایم های خالیشونُ وارد میکنن و تایم جلسه مشخص میشه</p>
-            <p>اگه کسی رو میشناسی که اونم باید توی جلسه باشه میتونی لینکُ به اون هم بدی</p>
+            <p>.از جدول زیر میتونید تایم های خالی خودتونُ وارد کنین و بعد از وارد کردن اسمتون ثبت کنین</p>
+            <p>.بقیه هم تایم های خالیشونُ وارد میکنن و تایم جلسه مشخص میشه</p>
+            <p>.اگه کسی رو میشناسی که اونم باید توی جلسه باشه میتونی لینکُ به اون هم بدی</p>
             <p>راستی با کلیک روی اعداد میشه دید که چه کسایی اون موقع وقت دارن</p>
-            <p>و نهایتا اگه برای جلسه دیگه ای نیاز به هماهنگی هست، میتونی خودت یک نظرسنجی دیگه درست کنی!</p>
+            <p>!و نهایتا اگه برای جلسه دیگه ای نیاز به هماهنگی هست، میتونی خودت یک نظرسنجی دیگه درست کنی</p>
             <!-- <p> - You can vote for your invited meeting to set time of meeting.</p> -->
             <!-- <p> - Or create your own timing...</p> -->
             <p>
@@ -94,63 +91,84 @@
 
         <hr>
 
-        <!-- Title -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>Add your free times</h3>
+        <% if(members && members.length){ %>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-family: BYekan;text-align: right;">خلاصه نتایج</h2>
+                </div>
             </div>
-        </div>
-        <!-- /.row -->
+            <div class="row text-center">
+                <div class="col-md-12 col-sm-12 hero-feature">
+                    <div class="thumbnail">
+                        <h3>تعداد افراد ثبت شده :
+            <span style="color:navy;"><%=members.length%></span>
+          </h3>
+                        <h3>نام افراد :
+            <span style="color:navy;"><%=members%></span>
+          </h3>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Page Features -->
-        <div class="row text-center">
+            <% } %>
 
-            <!-- <div class="col-md-3 col-sm-6 hero-feature"> -->
 
-            <div class="col-md-12 col-sm-12 hero-feature">
+                <!-- Title -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>.زمان های خالیتُ وارد کن</h3>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <!-- Page Features -->
+                <div class="row text-center">
 
-                <div class="thumbnail">
+                    <!-- <div class="col-md-3 col-sm-6 hero-feature"> -->
 
-                    <form method="post">
-                        <div class="caption">
-                            <h3>your name :</h3>
-                            <input type="text" name="name">
-                            <button type="submit" class="btn btn-primary">Submit!</button>
-                            <p>
-                            </p>
-                        </div>
+                    <div class="col-md-12 col-sm-12 hero-feature">
 
-                        <table border='0' style="width:100%" class="table">
-                            <tr>
-                                <th>
-                                    <h4>
+                        <div class="thumbnail">
+
+                            <form method="post">
+                                <div class="caption">
+                                    <!-- <h4>your name :</h4> -->
+                                    <input type="text" name="name" placeholder="نام به فارسی">
+                                    <button type="submit" class="btn btn-primary">ثبت</button>
+                                    <p>
+                                    </p>
+                                </div>
+
+                                <table border='0' style="width:100%" class="table">
+                                    <tr>
+                                        <th>
+                                            <h4>
                                   week days / hours
                                 </h4>
-                                </th>
-                                <% for(var i = 8 ; i <= 22 ; i++) {%>
-                                    <th align='center'>
-                                        <%= i %>
-                                    </th>
-                                    <% } %>
-                            </tr>
+                                        </th>
+                                        <% for(var i = 8 ; i <= 22 ; i++) {%>
+                                            <th align='center'>
+                                                <%= i %>
+                                            </th>
+                                            <% } %>
+                                    </tr>
 
-                            <%
+                                    <%
                   var week_days = ['Sat (0)','Sun (1)','Mon (2)','Tue (3)','Wed (4)','Thu (5)','Fri (6)'];
                   var cntr = 0 ;
                   %>
 
 
-                                <% for(var i = 0 ; i < 7 ; i++) {%>
-                                    <tr>
-                                        <td>
-                                            <h3>
+                                        <% for(var i = 0 ; i < 7 ; i++) {%>
+                                            <tr>
+                                                <td>
+                                                    <h4>
                                 <%= week_days[i] %>
-                              </h3>
-                                        </td>
-                                        <% for(var j = 0 ; j < 15 ; j++) {%>
-                                            <td>
-                                                <input class="checkbox" name='<%= ++cntr %>' type='checkbox'>
-                                                <%
+                              </h4>
+                                                </td>
+                                                <% for(var j = 0 ; j < 15 ; j++) {%>
+                                                    <td>
+                                                        <input class="checkbox" name='<%= ++cntr %>' type='checkbox'>
+                                                        <%
                                       var people_n = 0 ;
                                       if(names[cntr]){
                                         people_n = names[cntr].length;
@@ -167,27 +185,27 @@
                                       }
 
                                       %>
-                                                    <br />
-                                                    <button type="button" id="<%= cntr %>" class="btn btn-<%=color%>" data-container="body" data-toggle="popover" data-placement="right" data-content="<%=names[cntr]%>">
+                                                            <br />
+                                                            <button type="button" id="<%= cntr %>" class="btn btn-<%=color%>" data-container="body" data-toggle="popover" data-placement="right" data-content="<%=names[cntr]%>">
 
-                                                        <%=people_n%>
-                                                    </button>
-                                            </td>
+                                                                <%=people_n%>
+                                                            </button>
+                                                    </td>
 
-                                            <% } %>
+                                                    <% } %>
 
-                                    </tr>
-                                    <%}%>
-                        </table>
+                                            </tr>
+                                            <%}%>
+                                </table>
 
-                    </form>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- /.row -->
+                <!-- /.row -->
 
-        <hr>
-        <% include footer %>
+                <hr>
+                <% include footer %>
     </div>
     <!-- /.container -->
 
