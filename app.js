@@ -11,6 +11,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+require('colors');
+
 var routes = require('./server/routes/index');
 
 var app = express();
@@ -28,6 +30,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// testing part
+app.use(function(req, res, next) {
+    var full_url = req.protocol + "://" + req.get('host') + req.originalUrl;
+    var ip = 'not found';
+    if (req.ip)
+        ip = req.ip.split(':').pop();
+
+    console.file_log(full_url + " / ip -> " + ip);
+    return next();
+});
 
 app.use('/', routes);
 
