@@ -137,7 +137,6 @@
                                     <p>
                                     </p>
                                 </div>
-
                                 <table border='0' style="width:100%" class="table">
                                     <tr>
                                         <th>
@@ -167,8 +166,9 @@
                                                 </td>
                                                 <% for(var j = 0 ; j < 15 ; j++) {%>
                                                     <td>
-                                                        <input class="checkbox" name='<%= ++cntr %>' type='checkbox'>
-                                                        <%
+                                                        <div align='center'>
+                                                            <input class="checkbox" name='<%= ++cntr %>' type='checkbox'>
+                                                            <%
                                       var people_n = 0 ;
                                       if(names[cntr]){
                                         people_n = names[cntr].length;
@@ -185,11 +185,12 @@
                                       }
 
                                       %>
-                                                            <br />
-                                                            <button type="button" id="<%= cntr %>" class="btn btn-<%=color%>" data-container="body" data-toggle="popover" data-placement="right" data-content="<%=names[cntr]%>">
+                                                                <br />
+                                                                <button type="button" id="<%= cntr %>" class="btn btn-<%=color%>" data-container="body" data-toggle="popover" data-placement="right" data-content="<%=names[cntr]%>">
 
-                                                                <%=people_n%>
-                                                            </button>
+                                                                    <%=people_n%>
+                                                                </button>
+                                                        </div>
                                                     </td>
 
                                                     <% } %>
